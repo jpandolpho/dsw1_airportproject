@@ -40,13 +40,18 @@ public class AirportServlet extends HttpServlet {
 		processRequest(request, response);
 	}
 
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		String view;
 		
 		if("login".equals(action)) {
 			view = handleLogin(request, response);
+		}else {
+			view = "index.jsp";
 		}
+		
+		var dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 
 	private String handleLogin(HttpServletRequest request, HttpServletResponse response) {
