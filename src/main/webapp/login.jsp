@@ -10,12 +10,12 @@
 			<div class="mb-3">
 				<label for="user" class="form-label">Usuário</label> <input type="text"
 					class="form-control" id="user" name="textUser"
-					placeholder="Digite o usuário.">
+					placeholder="Digite o usuário." required="required">
 			</div>
 			<div class="mb-3">
 				<label for="senha" class="form-label">Senha</label> <input
 					type="password" class="form-control" id="senha" name="textSenha"
-					placeholder="Digite a Senha.">
+					placeholder="Digite a Senha." required="required">
 			</div>
 
 			<button type="submit" class="btn btn-primary"
