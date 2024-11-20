@@ -5,7 +5,7 @@
   <jsp:include page="/includes/navbar.jsp"/>
   <main class="container-sm flex-grow-1  justify-content-center">
 		<h1 style="text-align: center; margin: 30px;">Login</h1>
-		<form class="bg-white p-4 rounded-3 shadow" action="#"
+		<form class="bg-white p-4 rounded-3 shadow" action="airport.do?action=auth"
 			method="post">
 			<div class="mb-3">
 				<label for="user" class="form-label">Usuário</label> <input type="text"
@@ -19,7 +19,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary"
-				style="text-align: center;">Salvar Contato</button>
+				style="text-align: center;">Login</button>
 		</form>
 	</main>
   <jsp:include page="/includes/script.html"/>

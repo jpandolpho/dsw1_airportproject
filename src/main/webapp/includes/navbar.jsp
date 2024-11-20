@@ -25,7 +25,7 @@
         HttpSession sessao = request.getSession(false);
         if(sessao == null || sessao.getAttribute("user") == null){
         %>
-          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
+          <li class="nav-item"><a href="airport.do?action=login" class="nav-link link-body-emphasis px-2">Login</a></li>
         <%
         }else{
         %>
