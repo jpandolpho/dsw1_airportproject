@@ -32,6 +32,10 @@ public class AirportServlet extends HttpServlet {
     	boarding = new BoardingTotem();
     	takingOff = new TakingOffTotem();
     	tookOff = new TookOffTotem();
+    	flights.register(arriving);
+    	flights.register(boarding);
+    	flights.register(takingOff);
+    	flights.register(tookOff);
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
