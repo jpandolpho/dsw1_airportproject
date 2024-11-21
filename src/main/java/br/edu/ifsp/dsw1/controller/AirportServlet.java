@@ -50,12 +50,26 @@ public class AirportServlet extends HttpServlet {
 			view = handleLogin(request, response);
 		}else if("auth".equals(action)){
 			view = handleAuth(request,response);
+		}else if("flights".equals(action)){
+			view = handleFlights(request, response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleFlights(HttpServletRequest request, HttpServletResponse response) {
+		String target;
+		HttpSession sessao = request.getSession();
+		if(sessao == null || sessao.getAttribute("user") == null){
+			request.setAttribute("msg", true);
+			target = "login.jsp";
+		}else {
+			target = "flights.jsp";
+		}
+		return target;
 	}
 
 	private String handleAuth(HttpServletRequest request, HttpServletResponse response) {

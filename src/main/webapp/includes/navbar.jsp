@@ -11,7 +11,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="#">
+          <li class="nav-item"><a class="nav-link" href="airport.do?action=flights">
               Administração</a></li>
           <li class="nav-item"><a class="nav-link" href="#"> Sala
               de Embarque</a></li>
