@@ -9,6 +9,13 @@ public class TookOffTotem extends Totem {
 		super();
 	}
 	
+	//Implementação do método update.
+	//Nesta classe, nos importamos apenas com voos
+	//com estado "TookOff".
+	//Exibe um número limitado de voos que já partiram,
+	//já que eles são removidos do sistema quando partem.
+	//Foi decidido, arbitrariamente, exibir apenas os
+	//últimos 3 voos que partiram.
 	@Override
 	public void update(FlightData flight) {
 		if(flight.getState() instanceof TookOff) {

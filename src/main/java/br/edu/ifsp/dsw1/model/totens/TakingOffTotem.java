@@ -9,6 +9,9 @@ public class TakingOffTotem extends Totem {
 		super();
 	}
 	
+	//Implementação do método update.
+	//Nesta classe, nos importamos apenas com voos
+	//com estado "TakingOff".
 	@Override
 	public void update(FlightData flight) {
 		if(flight.getState() instanceof TakingOff) {
