@@ -58,12 +58,19 @@ public class AirportServlet extends HttpServlet {
 			view = handleLogout(request, response);
 		}else if("newFlight".equals(action)){
 			view = handleNewFlight(request, response);
+		}else if("illegalAccess".equals(action)){
+			view = handleIllegal(request,response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleIllegal(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("msg", "Faça login para acessar informações de administração.");
+		return "login.jsp";
 	}
 
 	private String handleNewFlight(HttpServletRequest request, HttpServletResponse response) {

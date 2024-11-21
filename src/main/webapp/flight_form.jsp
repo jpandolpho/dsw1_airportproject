@@ -6,7 +6,7 @@
   <%
   HttpSession sessao = request.getSession(false);
   if(sessao == null || sessao.getAttribute("user") == null){
-   	response.sendRedirect("airport.do?action=notAuth");	
+   	response.sendRedirect("airport.do?action=illegalAccess");	
   }else{
   %>
   <main class="container-sm flex-grow-1  justify-content-center">
@@ -26,7 +26,7 @@
       <div class="mb-3">
 				<label for="chegada" class="form-label">Horário de Chegada</label> <input
 					type="text" class="form-control" id="chegada" name="textChegada"
-					placeholder="Digite o Horário de Chegada (por exemplo, 15:30)" required="required">
+					placeholder="Digite o Horário de Chegada (por exemplo, 15:30)." required="required">
 			</div>
 
 			<button type="submit" class="btn btn-primary"
