@@ -18,7 +18,7 @@
           <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=arriving"> Sala
               de Desembarque</a></li>
           <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=takingOff">Hall 1</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Hall 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=tookOff">Hall 2</a></li>
         </ul>
         <ul class="nav">
         <%

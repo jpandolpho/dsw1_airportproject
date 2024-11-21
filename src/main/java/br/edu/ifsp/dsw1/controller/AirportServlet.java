@@ -98,6 +98,9 @@ public class AirportServlet extends HttpServlet {
 			case "takingOff":
 				voos = takingOff.getAllFlights();
 				break;
+			case "tookOff":
+				voos = tookOff.getAllFlights();
+				break;
 			default:
 				voos = null;
 				break;
