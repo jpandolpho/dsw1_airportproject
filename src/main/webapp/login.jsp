@@ -4,16 +4,16 @@
 <body>
   <jsp:include page="/includes/navbar.jsp"/>
   <main class="container-sm flex-grow-1  justify-content-center">
+		<h1 style="text-align: center; margin: 30px;">Login</h1>
 		<%
-		boolean msg = (boolean)request.getAttribute("msg");
-		if(msg){
+		String msg = (String)request.getAttribute("msg");
+		if(msg!=null){
 		%>
 		<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			Faça login para acessar informações de administração.
+			<%=msg %>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 		<%}%>
-		<h1 style="text-align: center; margin: 30px;">Login</h1>
 		<form class="bg-white p-4 rounded-3 shadow" action="airport.do?action=auth"
 			method="post">
 			<div class="mb-3">

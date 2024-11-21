@@ -6,7 +6,7 @@
   <%
   HttpSession sessao = request.getSession(false);
   if(sessao == null || sessao.getAttribute("user") == null){
-   	response.sendRedirect("login.jsp");	
+   	response.sendRedirect("airport.do?action=notAuth");	
   }else{
   %>
   <main class="container-sm flex-grow-1  justify-content-center">

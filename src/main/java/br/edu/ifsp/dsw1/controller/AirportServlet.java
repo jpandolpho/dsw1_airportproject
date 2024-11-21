@@ -52,6 +52,8 @@ public class AirportServlet extends HttpServlet {
 			view = handleAuth(request,response);
 		}else if("flights".equals(action)){
 			view = handleFlights(request, response);
+		}else if("notAuth".equals(action)){
+			view = handleNotAuth(request, response);
 		}else{
 			view = "index.jsp";
 		}
@@ -60,11 +62,16 @@ public class AirportServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	private String handleNotAuth(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("msg", "Login incorreto.");
+		return "login.jsp";
+	}
+
 	private String handleFlights(HttpServletRequest request, HttpServletResponse response) {
 		String target;
-		HttpSession sessao = request.getSession();
+		HttpSession sessao = request.getSession(false);
 		if(sessao == null || sessao.getAttribute("user") == null){
-			request.setAttribute("msg", true);
+			request.setAttribute("msg", "Faça login para acessar informações de administração.");
 			target = "login.jsp";
 		}else {
 			target = "flights.jsp";
