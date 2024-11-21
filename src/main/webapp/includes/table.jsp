@@ -20,6 +20,8 @@ var voos = (List<FlightData>)request.getAttribute("flights");
   <tbody class="table-group-divider">
   <%-- Nas páginas dos totens, foi decidido exibir apenas número do voo, a companhia
   e o horário de chegada do voo. --%>
+  <%-- Caso a lista de voo recebida através da requisição esteja vazia, é exibida uma
+  mensagem informando que nenhum voo foi encontrado. --%>
     <%
     if(!voos.isEmpty()){
     	for(var voo : voos){

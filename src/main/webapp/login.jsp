@@ -1,3 +1,4 @@
+<%-- Página de login do administrador. --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="/includes/head.html"/>
 
@@ -5,6 +6,10 @@
   <jsp:include page="/includes/navbar.jsp"/>
   <main class="container-sm flex-grow-1  justify-content-center">
 		<h1 style="text-align: center; margin: 30px;">Login</h1>
+		<%-- Existe a possibilidade de uma mensagem ser exibida na página de login. --%>
+		<%-- Os dois casos são quando o usuário insere informações incorretas para o login,
+		e quando o usuário não autenticado tenta acessar páginas que apenas o administrador 
+		consegue acessar. Cada caso tem uma mensagem própria.--%>
 		<%
 		String msg = (String)request.getAttribute("msg");
 		if(msg!=null){
@@ -14,6 +19,7 @@
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 		<%}%>
+		<%-- Formulário para a envio de dados de login, com destino action=auth (authenticate). --%>
 		<form class="bg-white p-4 rounded-3 shadow" action="airport.do?action=auth"
 			method="post">
 			<div class="mb-3">

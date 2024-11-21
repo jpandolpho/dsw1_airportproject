@@ -1,3 +1,5 @@
+<%-- Página de controle do administrador. --%>
+<%-- Nela são exibidos os voos existentes no sistema e um botão para adicionar novos voos. --%>
 <%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -5,6 +7,8 @@
 
 <body>
   <jsp:include page="/includes/navbar.jsp"/>
+  <%-- Verificação para checar se o usuário esta autenticado. Caso não esteja, ele é
+  redirecionado para o action=notAuth, que o jogará de volta para a página de login. --%>
   <%
   HttpSession sessao = request.getSession(false);
   if(sessao == null || sessao.getAttribute("user") == null){
@@ -22,6 +26,9 @@
         </div>
       </div>
     </div>
+    <%-- Existe a possibilidade de uma mensagem ser exibida na página. --%>
+	<%-- Os dois casos são quando o usuário insere um novo voo no sistema, e quando ele
+	atualiza o estado de algum voo. Cada caso tem sua própria mensagem.--%>
     <%
 		String msg = (String)request.getAttribute("msg");
 		if(msg!=null){
@@ -32,6 +39,7 @@
 		</div>
 		<%
 		}
+		//Recuperação dos dados dos voos recebidos através da requisição.
 		var voos = (List<FlightData>)request.getAttribute("flights");
 		%>
     <table class="table table-striped">
@@ -45,6 +53,10 @@
         </tr>
       </thead>
       <tbody class="table-group-divider">
+      <%-- Para o administrador, são exibidas todas as informações do voo, além de um
+      botão para atualização do estado do voo. --%>
+      <%-- Caso a lista de voo recebida através da requisição esteja vazia, é exibida uma
+      mensagem informando que nenhum voo foi encontrado. --%>
         <%
         if(!voos.isEmpty()){
         	for(var voo : voos){
@@ -54,6 +66,8 @@
           <td><%=voo.getCompany() %></td>
           <td><%=voo.getTime() %></td>
           <td><%=voo.getState().getClass().getSimpleName() %></td>
+          <%-- O número do voo a ser atualizado é passado como parametro através do link,
+          junto com o action=update. --%>
           <td><a class="btn btn-primary" href="airport.do?action=update&number=<%=voo.getFlightNumber()%>">Atualizar</a></td>
         </tr>
         <%

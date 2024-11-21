@@ -1,8 +1,12 @@
+<%-- Formulário para cadastro de novos voos. --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="/includes/head.html"/>
 
 <body>
   <jsp:include page="/includes/navbar.jsp"/>
+  <%-- Verificação para checar se o usuário esta autenticado. Caso não esteja, ele é
+  redirecionado para o action=illegalAccess, que o jogará de volta para a página de 
+  login. --%>
   <%
   HttpSession sessao = request.getSession(false);
   if(sessao == null || sessao.getAttribute("user") == null){
