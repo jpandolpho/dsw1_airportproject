@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-  <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+  <nav class="navbar navbar-expand-lg bg-secondary-subtle" style="margin-bottom: 10px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.jsp">Airport DSW1</a>
       <button class="navbar-toggler" type="button"
