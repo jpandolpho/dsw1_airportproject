@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
+import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 import br.edu.ifsp.dsw1.model.totens.ArrivingTotem;
 import br.edu.ifsp.dsw1.model.totens.BoardingTotem;
 import br.edu.ifsp.dsw1.model.totens.TakingOffTotem;
@@ -64,12 +66,29 @@ public class AirportServlet extends HttpServlet {
 			view = handleNewFlight(request, response);
 		}else if("illegalAccess".equals(action)){
 			view = handleIllegal(request,response);
+		}else if("addFlight".equals(action)){
+			view = handleAddFlight(request,response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleAddFlight(HttpServletRequest request, HttpServletResponse response) {
+		var numero = Long.parseLong(request.getParameter("textFlightNumber"));
+		var name = request.getParameter("textCompanhia");
+		var chegada = request.getParameter("textChegada");
+		
+		FlightData flight = new FlightData(numero,name,chegada);
+		flight.setState(Arriving.getIntance());
+		
+		flights.insertFlight(flight);
+		
+		request.setAttribute("msg", "Voo adicionado ao sistema.");
+		
+		return "flights.jsp";
 	}
 
 	private String handleIllegal(HttpServletRequest request, HttpServletResponse response) {
