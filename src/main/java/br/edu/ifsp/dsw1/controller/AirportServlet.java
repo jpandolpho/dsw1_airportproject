@@ -82,6 +82,7 @@ public class AirportServlet extends HttpServlet {
 	private String handleUpdate(HttpServletRequest request, HttpServletResponse response) {
 		var numero = Long.parseLong(request.getParameter("number"));
 		flights.updateFlight(numero);
+		setMessageRequest(request, response, 3);
 		fetchAllFlights(request, response);
 		return "flights.jsp";
 	}
@@ -146,6 +147,9 @@ public class AirportServlet extends HttpServlet {
 				break;
 			case 2:
 				message = "Voo adicionado ao sistema.";
+				break;
+			case 3:
+				message = "Voo atualizado.";
 				break;
 			default:
 				message = null;
