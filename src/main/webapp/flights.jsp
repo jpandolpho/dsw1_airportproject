@@ -1,3 +1,5 @@
+<%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="/includes/head.html"/>
 
@@ -38,6 +40,7 @@
           <th scope="col">Número do Voo</th>
           <th scope="col">Companhia</th>
           <th scope="col">Horário de Chegada</th>
+          <th scope="col">Estado</th>
           <th scope="col">Atualizar</th>
         </tr>
       </thead>
@@ -49,6 +52,7 @@
           <th scope="row"><%=voo.getFlightNumber() %></th>
           <td><%=voo.getCompany() %></td>
           <td><%=voo.getTime() %></td>
+          <td><%=voo.getState().toString() %></td>
           <td><a class="btn btn-primary" href="airport.do?action=update&number=<%=voo.getFlightNumber()%>">Atualizar</a></td>
         </tr>
         <%}%>
