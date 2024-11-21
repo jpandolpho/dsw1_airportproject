@@ -71,12 +71,34 @@ public class AirportServlet extends HttpServlet {
 			view = handleAddFlight(request,response);
 		}else if("update".equals(action)){
 			view = handleUpdate(request,response);
+		}else if("totem".equals(action)) {
+			view = handleTotem(request,response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleTotem(HttpServletRequest request, HttpServletResponse response) {
+		return fetchTotemFlights(request,response);
+	}
+
+	private String fetchTotemFlights(HttpServletRequest request, HttpServletResponse response) {
+		String target = request.getParameter("target");
+		List<FlightData> voos;
+		switch(target) {
+			case "arriving":
+				voos = arriving.getAllFlights();
+				break;
+			default:
+				voos = null;
+				break;
+		}
+		request.setAttribute("flights", voos);
+		target+=".jsp";
+		return target;
 	}
 
 	private String handleUpdate(HttpServletRequest request, HttpServletResponse response) {
