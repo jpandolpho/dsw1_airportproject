@@ -6,7 +6,7 @@
   <%
   HttpSession sessao = request.getSession(false);
   if(sessao == null || sessao.getAttribute("user") == null){
-   	response.sendRedirect("index.jsp");	
+   	response.sendRedirect("login.jsp");	
   }else{
   %>
   <main class="container-sm flex-grow-1  justify-content-center">
