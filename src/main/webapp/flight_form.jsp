@@ -19,7 +19,7 @@
 					placeholder="Digite o Número do Voo." required="required">
 			</div>
 			<div class="mb-3">
-				<label for="companhia" class="form-label">Senha</label> <input
+				<label for="companhia" class="form-label">Companhia</label> <input
 					type="text" class="form-control" id="companhia" name="textCompanhia"
 					placeholder="Digite a Companhia." required="required">
 			</div>
