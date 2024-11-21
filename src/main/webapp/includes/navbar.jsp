@@ -13,7 +13,7 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link" href="airport.do?action=flights">
               Administração</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"> Sala
+          <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=boarding"> Sala
               de Embarque</a></li>
           <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=arriving"> Sala
               de Desembarque</a></li>
