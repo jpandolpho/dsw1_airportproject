@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.List;
 
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
@@ -87,6 +88,7 @@ public class AirportServlet extends HttpServlet {
 		flights.insertFlight(flight);
 		
 		setMessageRequest(request, response, 2);
+		fetchAllFlights(request,response);
 		
 		return "flights.jsp";
 	}
@@ -118,6 +120,7 @@ public class AirportServlet extends HttpServlet {
 			setMessageRequest(request,response,0);
 			target = "login.jsp";
 		}else {
+			fetchAllFlights(request,response);
 			target = "flights.jsp";
 		}
 		return target;
@@ -150,7 +153,13 @@ public class AirportServlet extends HttpServlet {
 			session.setAttribute("user", usuario);
 			session.setMaxInactiveInterval(5 * 60);
 		}
+		fetchAllFlights(request, response);
 		return "flights.jsp";
+	}
+
+	private void fetchAllFlights(HttpServletRequest request, HttpServletResponse response) {
+		List<FlightData> voos = flights.getAllFligthts();
+		request.setAttribute("flights", voos);
 	}
 
 	private boolean autenticar(String usuario, String senha) {
