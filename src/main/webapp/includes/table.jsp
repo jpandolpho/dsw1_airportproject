@@ -21,13 +21,21 @@ var voos = (List<FlightData>)request.getAttribute("flights");
   <%-- Nas páginas dos totens, foi decidido exibir apenas número do voo, a companhia
   e o horário de chegada do voo. --%>
     <%
-    for(var voo : voos){
+    if(!voos.isEmpty()){
+    	for(var voo : voos){
     %>
     <tr>
       <th scope="row"><%=voo.getFlightNumber() %></th>
       <td><%=voo.getCompany() %></td>
       <td><%=voo.getTime() %></td>
     </tr>
+    <%
+    	}
+    }else{
+   	%>
+    <tr>
+    	<th colspan="3">Nenhum voo encontrado.</th>
+    </tr>	
     <%}%>
   </tbody>
 </table>

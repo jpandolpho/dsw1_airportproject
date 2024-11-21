@@ -46,7 +46,8 @@
       </thead>
       <tbody class="table-group-divider">
         <%
-        for(var voo : voos){
+        if(!voos.isEmpty()){
+        	for(var voo : voos){
         %>
         <tr>
           <th scope="row"><%=voo.getFlightNumber() %></th>
@@ -55,7 +56,14 @@
           <td><%=voo.getState().getClass().getSimpleName() %></td>
           <td><a class="btn btn-primary" href="airport.do?action=update&number=<%=voo.getFlightNumber()%>">Atualizar</a></td>
         </tr>
-        <%}%>
+        <%
+        	}
+        }else{
+        %>
+		<tr>
+	    	<th colspan="5">Nenhum voo encontrado.</th>
+	    </tr>  
+  		<%}%>
       </tbody>
     </table>
   </main>
