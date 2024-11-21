@@ -54,12 +54,20 @@ public class AirportServlet extends HttpServlet {
 			view = handleFlights(request, response);
 		}else if("notAuth".equals(action)){
 			view = handleNotAuth(request, response);
+		}else if("logout".equals(action)){
+			view = handleLogout(request, response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleLogout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession sessao = request.getSession();
+		sessao.invalidate();
+		return "index.jsp";
 	}
 
 	private String handleNotAuth(HttpServletRequest request, HttpServletResponse response) {

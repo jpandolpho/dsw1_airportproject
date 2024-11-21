@@ -29,7 +29,7 @@
         <%
         }else{
         %>
-       	  <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Logout</a></li>
+       	  <li class="nav-item"><a href="airport.do?action=logout" class="nav-link link-body-emphasis px-2">Logout</a></li>
       	<%}%>
         </ul>
       </div>
