@@ -15,7 +15,7 @@
               Administração</a></li>
           <li class="nav-item"><a class="nav-link" href="#"> Sala
               de Embarque</a></li>
-          <li class="nav-item"><a class="nav-link" href="airport.do?action=arriving"> Sala
+          <li class="nav-item"><a class="nav-link" href="airport.do?action=totem&target=arriving"> Sala
               de Desembarque</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Hall 1</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Hall 2</a></li>
