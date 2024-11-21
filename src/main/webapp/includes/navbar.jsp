@@ -15,10 +15,10 @@
               Administração</a></li>
           <li class="nav-item"><a class="nav-link" href="#"> Sala
               de Embarque</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"> Sala
+          <li class="nav-item"><a class="nav-link" href="airport.do?action=arriving"> Sala
               de Desembarque</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Embarcando</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Decolando</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hall 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hall 2</a></li>
         </ul>
         <ul class="nav">
         <%
