@@ -52,7 +52,7 @@
           <th scope="row"><%=voo.getFlightNumber() %></th>
           <td><%=voo.getCompany() %></td>
           <td><%=voo.getTime() %></td>
-          <td><%=voo.getState().toString() %></td>
+          <td><%=voo.getState().getClass().getSimpleName() %></td>
           <td><a class="btn btn-primary" href="airport.do?action=update&number=<%=voo.getFlightNumber()%>">Atualizar</a></td>
         </tr>
         <%}%>
