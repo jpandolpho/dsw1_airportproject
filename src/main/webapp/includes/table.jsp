@@ -1,7 +1,11 @@
+<%-- Include para a tabela exibida nas páginas do totens. --%>
+<%-- Como todos funcionam da mesma forma, recebendo apenas uma lista diferente de dados,
+foi decidido criar o include, para facilitar o desenvolvimento e possível expansão. --%>
 <%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- Recuperação dos voos recebidos através da requisição. --%>
 <%
 var voos = (List<FlightData>)request.getAttribute("flights");
 %>
@@ -14,6 +18,8 @@ var voos = (List<FlightData>)request.getAttribute("flights");
     </tr>
   </thead>
   <tbody class="table-group-divider">
+  <%-- Nas páginas dos totens, foi decidido exibir apenas número do voo, a companhia
+  e o horário de chegada do voo. --%>
     <%
     for(var voo : voos){
     %>
