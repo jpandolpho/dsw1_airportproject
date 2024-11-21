@@ -83,8 +83,7 @@ public class AirportServlet extends HttpServlet {
 		var numero = Long.parseLong(request.getParameter("number"));
 		flights.updateFlight(numero);
 		setMessageRequest(request, response, 3);
-		fetchAllFlights(request, response);
-		return "flights.jsp";
+		return fetchAllFlights(request, response);
 	}
 
 	private String handleAddFlight(HttpServletRequest request, HttpServletResponse response) {
@@ -98,9 +97,8 @@ public class AirportServlet extends HttpServlet {
 		flights.insertFlight(flight);
 		
 		setMessageRequest(request, response, 2);
-		fetchAllFlights(request,response);
 		
-		return "flights.jsp";
+		return fetchAllFlights(request, response);
 	}
 
 	private String handleIllegal(HttpServletRequest request, HttpServletResponse response) {
@@ -130,8 +128,7 @@ public class AirportServlet extends HttpServlet {
 			setMessageRequest(request,response,0);
 			target = "login.jsp";
 		}else {
-			fetchAllFlights(request,response);
-			target = "flights.jsp";
+			target = fetchAllFlights(request, response);
 		}
 		return target;
 	}
@@ -166,13 +163,13 @@ public class AirportServlet extends HttpServlet {
 			session.setAttribute("user", usuario);
 			session.setMaxInactiveInterval(5 * 60);
 		}
-		fetchAllFlights(request, response);
-		return "flights.jsp";
+		return fetchAllFlights(request, response);
 	}
 
-	private void fetchAllFlights(HttpServletRequest request, HttpServletResponse response) {
+	private String fetchAllFlights(HttpServletRequest request, HttpServletResponse response) {
 		List<FlightData> voos = flights.getAllFligthts();
 		request.setAttribute("flights", voos);
+		return "flights.jsp";
 	}
 
 	private boolean autenticar(String usuario, String senha) {
