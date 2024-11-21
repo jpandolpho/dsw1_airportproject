@@ -8,9 +8,9 @@
 		boolean msg = (boolean)request.getAttribute("msg");
 		if(msg){
 		%>
-		<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
 			Faça login para acessar informações de administração.
-			<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 		<%}%>
 		<h1 style="text-align: center; margin: 30px;">Login</h1>
