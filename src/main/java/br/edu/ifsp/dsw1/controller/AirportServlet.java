@@ -86,13 +86,13 @@ public class AirportServlet extends HttpServlet {
 		
 		flights.insertFlight(flight);
 		
-		request.setAttribute("msg", "Voo adicionado ao sistema.");
+		setMessageRequest(request, response, 2);
 		
 		return "flights.jsp";
 	}
 
 	private String handleIllegal(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("msg", "Faça login para acessar informações de administração.");
+		setMessageRequest(request,response,0);
 		return "login.jsp";
 	}
 
@@ -107,7 +107,7 @@ public class AirportServlet extends HttpServlet {
 	}
 
 	private String handleNotAuth(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("msg", "Login incorreto.");
+		setMessageRequest(request,response,1);
 		return "login.jsp";
 	}
 
@@ -115,7 +115,7 @@ public class AirportServlet extends HttpServlet {
 		String target;
 		HttpSession sessao = request.getSession(false);
 		if(sessao == null || sessao.getAttribute("user") == null){
-			request.setAttribute("msg", "Faça login para acessar informações de administração.");
+			setMessageRequest(request,response,0);
 			target = "login.jsp";
 		}else {
 			target = "flights.jsp";
@@ -123,6 +123,25 @@ public class AirportServlet extends HttpServlet {
 		return target;
 	}
 
+	private void setMessageRequest(HttpServletRequest request, HttpServletResponse response, int i) {
+		String message;
+		switch(i) {
+			case 0:
+				message = "Faça login para acessar informações de administração.";
+				break;
+			case 1:
+				message = "Login incorreto.";
+				break;
+			case 2:
+				message = "Voo adicionado ao sistema.";
+				break;
+			default:
+				message = null;
+				break;
+		}
+		request.setAttribute("msg", message);
+	}
+	
 	private String handleAuth(HttpServletRequest request, HttpServletResponse response) {
 		String usuario = request.getParameter("textUser");
 		String senha = request.getParameter("textSenha");
