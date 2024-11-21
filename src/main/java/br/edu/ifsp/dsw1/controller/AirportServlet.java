@@ -69,12 +69,21 @@ public class AirportServlet extends HttpServlet {
 			view = handleIllegal(request,response);
 		}else if("addFlight".equals(action)){
 			view = handleAddFlight(request,response);
+		}else if("update".equals(action)){
+			view = handleUpdate(request,response);
 		}else{
 			view = "index.jsp";
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+	}
+
+	private String handleUpdate(HttpServletRequest request, HttpServletResponse response) {
+		var numero = Long.parseLong(request.getParameter("number"));
+		flights.updateFlight(numero);
+		fetchAllFlights(request, response);
+		return "flights.jsp";
 	}
 
 	private String handleAddFlight(HttpServletRequest request, HttpServletResponse response) {
